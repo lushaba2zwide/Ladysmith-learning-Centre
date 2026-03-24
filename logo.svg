@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <!-- Icon: open book with a rising spark/flame above -->
+  <g transform="translate(10, 8)">
+    <!-- Book left page -->
+    <path d="M30 52 Q30 28 10 22 L10 56 Q30 62 30 52Z" fill="#111111"/>
+    <!-- Book right page -->
+    <path d="M30 52 Q30 28 50 22 L50 56 Q30 62 30 52Z" fill="#111111"/>
+    <!-- Book spine -->
+    <rect x="28.5" y="22" width="3" height="34" rx="1.5" fill="#555555"/>
+    <!-- Book base line -->
+    <rect x="8" y="56" width="44" height="3" rx="1.5" fill="#111111"/>
+    <!-- Rising spark lines above book -->
+    <line x1="30" y1="20" x2="30" y2="10" stroke="#111111" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="22" y1="18" x2="19" y2="10" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+    <line x1="38" y1="18" x2="41" y2="10" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+    <!-- Star/spark dot at top -->
+    <circle cx="30" cy="8" r="3" fill="#111111"/>
+    <circle cx="18" cy="8" r="2" fill="#555555"/>
+    <circle cx="42" cy="8" r="2" fill="#555555"/>
+  </g>
+
+  <!-- Vertical divider -->
+  <line x1="78" y1="16" x2="78" y2="64" stroke="#cccccc" stroke-width="1.5"/>
+
+  <!-- Text: Ladysmith -->
+  <text x="90" y="38"
+    font-family="'Segoe UI', Arial, sans-serif"
+    font-size="24"
+    font-weight="700"
+    fill="#111111"
+    letter-spacing="0.5">Ladysmith</text>
+
+  <!-- Text: LEARNING CENTRE -->
+  <text x="91" y="58"
+    font-family="'Segoe UI', Arial, sans-serif"
+    font-size="12"
+    font-weight="400"
+    fill="#555555"
+    letter-spacing="3">LEARNING CENTRE</text>
+</svg>

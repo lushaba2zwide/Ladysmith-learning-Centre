@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply Online | Ladysmith Learning Centre</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Ladysmith Learning Centre" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="apply.html" class="enroll-btn active-btn">Apply Now</a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+    <ul class="mobile-menu" id="mobileMenu">
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="programmes.html" onclick="toggleMenu()">Programmes</a></li>
+      <li><a href="timetable.html" onclick="toggleMenu()">Timetable</a></li>
+      <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+      <li><a href="gallery.html" onclick="toggleMenu()">Gallery</a></li>
+      <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+      <li><a href="apply.html" onclick="toggleMenu()">Apply Now</a></li>
+    </ul>
+  </header>
+
+  <section class="page-hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="container">
+      <p class="hero-tag">Join Ladysmith Learning Centre</p>
+      <h1>Apply Online</h1>
+      <p>Complete the form below and we will contact you to confirm your enrolment.</p>
+    </div>
+  </section>
+
+  <section class="apply-section">
+    <div class="container apply-wrapper">
+
+      <!-- Side info -->
+      <div class="apply-info">
+        <h2>Before You Apply</h2>
+
+        <div class="apply-info-block">
+          <span class="apply-info-icon">📋</span>
+          <div>
+            <strong>Who Can Apply?</strong>
+            <p>Anyone who wants to learn — Grade 8–12 learners, matric repeaters or upgraders, and adults of any age.</p>
+          </div>
+        </div>
+
+        <div class="apply-info-block">
+          <span class="apply-info-icon">💰</span>
+          <div>
+            <strong>Fees</strong>
+            <p>R500 once-off registration fee + R300 per subject per month.</p>
+          </div>
+        </div>
+
+        <div class="apply-info-block">
+          <span class="apply-info-icon">🏦</span>
+          <div>
+            <strong>Payment</strong>
+            <p>Capitec Bank<br />Account No: 1591378913<br />Reference: Your full name</p>
+          </div>
+        </div>
+
+        <div class="apply-info-block">
+          <span class="apply-info-icon">📍</span>
+          <div>
+            <strong>Location</strong>
+            <p>160 Murchison Street<br />Old Riga Building, Room 3<br />Ladysmith</p>
+          </div>
+        </div>
+
+        <div class="apply-info-block">
+          <span class="apply-info-icon">🕐</span>
+          <div>
+            <strong>Hours</strong>
+            <p>Mon–Fri: 08:00–15:00<br />Saturday: 09:00–14:00</p>
+          </div>
+        </div>
+
+        <div class="apply-note">
+          <p>After submitting, we will call or WhatsApp you within <strong>1–2 business days</strong> to confirm your place and discuss your subjects.</p>
+        </div>
+      </div>
+
+      <!-- Application Form -->
+      <form class="apply-form" id="applyForm" action="https://formspree.io/f/xaqprkbz" method="POST" onsubmit="handleApply(event)" novalidate>
+        <h2>Application Form</h2>
+        <p class="form-intro">Fields marked <span class="req">*</span> are required.</p>
+
+        <div class="form-section-title">Personal Information</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name <span class="req">*</span></label>
+            <input type="text" id="firstName" name="firstName" placeholder="e.g. Sipho" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name <span class="req">*</span></label>
+            <input type="text" id="lastName" name="lastName" placeholder="e.g. Dlamini" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dob">Date of Birth <span class="req">*</span></label>
+            <input type="date" id="dob" name="dateOfBirth" required />
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender <span class="req">*</span></label>
+            <select id="gender" name="gender" required>
+              <option value="">-- Select --</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="idNumber">ID Number</label>
+          <input type="text" id="idNumber" name="idNumber" placeholder="13-digit SA ID number" maxlength="13" />
+        </div>
+
+        <div class="form-section-title">Contact Details</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. 082 000 0000" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Home Address <span class="req">*</span></label>
+          <input type="text" id="address" name="address" placeholder="Street, Area, Ladysmith" required />
+        </div>
+
+        <div class="form-section-title">Academic Information</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="programme">Programme <span class="req">*</span></label>
+            <select id="programme" name="programme" required>
+              <option value="">-- Select a programme --</option>
+              <option>After-School Tutoring (Grades 8–12)</option>
+              <option>Grade 12 Upgrade</option>
+              <option>Grade 12 Repeat</option>
+              <option>One-on-One Tutoring</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="grade">Current / Last Grade <span class="req">*</span></label>
+            <select id="grade" name="grade" required>
+              <option value="">-- Select --</option>
+              <option>Grade 8</option>
+              <option>Grade 9</option>
+              <option>Grade 10</option>
+              <option>Grade 11</option>
+              <option>Grade 12</option>
+              <option>Completed Grade 12</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Subjects Needed <span class="req">*</span></label>
+          <p class="field-hint">Select all subjects you want to enrol in.</p>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="IsiZulu" /> IsiZulu</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="English Home Language" /> English Home Language</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="English FAL" /> English First Additional Language</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Mathematics" /> Mathematics</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Mathematical Literacy" /> Mathematical Literacy</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Physical Sciences" /> Physical Sciences</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Life Sciences" /> Life Sciences</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Agricultural Sciences" /> Agricultural Sciences</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Accounting" /> Accounting</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Economics" /> Economics</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Business Studies" /> Business Studies</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="Geography" /> Geography</label>
+            <label class="checkbox-item"><input type="checkbox" name="subjects" value="History" /> History</label>
+          </div>
+          <p class="subject-cost" id="subjectCost"></p>
+        </div>
+
+        <div class="form-group">
+          <label for="school">Current / Previous School</label>
+          <input type="text" id="school" name="school" placeholder="Name of school" />
+        </div>
+
+        <div class="form-section-title">Parent / Guardian (if under 18)</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guardianName">Guardian Full Name</label>
+            <input type="text" id="guardianName" name="guardianName" placeholder="Full name" />
+          </div>
+          <div class="form-group">
+            <label for="guardianPhone">Guardian Phone</label>
+            <input type="tel" id="guardianPhone" name="guardianPhone" placeholder="e.g. 083 000 0000" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="hearAbout">How did you hear about us?</label>
+          <select id="hearAbout" name="hearAbout">
+            <option value="">-- Select --</option>
+            <option>Word of mouth / Friend</option>
+            <option>Social media</option>
+            <option>Flyer / Poster</option>
+            <option>Walked past</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Additional Notes</label>
+          <textarea id="notes" name="notes" rows="4" placeholder="Anything else you'd like us to know..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-item consent-check">
+            <input type="checkbox" id="consent" required />
+            I confirm that the information provided is accurate and I agree to be contacted by Ladysmith Learning Centre. <span class="req">*</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-primary full-width apply-submit">Submit Application</button>
+
+        <div class="form-success" id="applySuccess">
+          <span class="success-icon">🎉</span>
+          <h3>Application Received!</h3>
+          <p>Thank you for applying to Ladysmith Learning Centre. We will contact you on the number provided within 1–2 business days to confirm your enrolment.</p>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Ladysmith Learning Centre" class="logo-img footer-logo" />
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">Registered with SARS | Tax Ref No: 9007722292 | © 2020–2026 Ladysmith Learning Centre. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timetable | Ladysmith Learning Centre</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Ladysmith Learning Centre" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="timetable.html" class="active">Timetable</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="apply.html" class="enroll-btn">Apply Now</a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+    <ul class="mobile-menu" id="mobileMenu">
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="programmes.html" onclick="toggleMenu()">Programmes</a></li>
+      <li><a href="timetable.html" onclick="toggleMenu()">Timetable</a></li>
+      <li><a href="gallery.html" onclick="toggleMenu()">Gallery</a></li>
+      <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+      <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+      <li><a href="contact.html" onclick="toggleMenu()">Enrol Now</a></li>
+    </ul>
+  </header>
+
+  <section class="page-hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="container">
+      <p class="hero-tag">2026 Schedule</p>
+      <h1>Class Timetable</h1>
+      <p>Monday to Friday · 08:00 – 15:00 · 160 Murchison Street, Old Riga Building, Room 3</p>
+    </div>
+  </section>
+
+  <section class="timetable-section">
+    <div class="container">
+
+      <div class="tt-legend fade-up">
+        <span class="tt-key tt-class">Class</span>
+        <span class="tt-key tt-break">Break</span>
+        <span class="tt-key tt-study">Study Time</span>
+      </div>
+
+      <div class="tt-wrapper fade-up">
+        <table class="timetable">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>08:00 – 09:00</th>
+              <th>09:00 – 10:00</th>
+              <th>10:00 – 11:00</th>
+              <th>11:00 – 12:00</th>
+              <th>12:00 – 13:00</th>
+              <th>13:00 – 14:00</th>
+              <th>14:00 – 15:00</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="day-label">Monday</td>
+              <td class="tt-class">Accounting<br/><small>Life Sciences</small></td>
+              <td class="tt-class">Mathematics<br/><small>History</small></td>
+              <td class="tt-class">Physics<br/><small>Math Lit</small></td>
+              <td class="tt-break" rowspan="1">BREAK</td>
+              <td class="tt-class">Geography</td>
+              <td class="tt-class">Business Studies<br/><small>Study: Mathematics</small></td>
+              <td class="tt-class">English</td>
+            </tr>
+            <tr>
+              <td class="day-label">Tuesday</td>
+              <td class="tt-class">Physics<br/><small>Maths Lit</small></td>
+              <td class="tt-class">Mathematics<br/><small>History</small></td>
+              <td class="tt-class">Accounting<br/><small>Life Sciences</small></td>
+              <td class="tt-break">BREAK</td>
+              <td class="tt-class">Economics<br/><small>Geography</small></td>
+              <td class="tt-class">English<br/><small>Study: Maths Lit</small></td>
+              <td class="tt-study">Study Time<br/><small>Any Subject</small></td>
+            </tr>
+            <tr>
+              <td class="day-label">Wednesday</td>
+              <td class="tt-class">Physics<br/><small>Maths Lit</small></td>
+              <td class="tt-class">Mathematics<br/><small>History</small></td>
+              <td class="tt-class">Accounting<br/><small>Life Sciences</small></td>
+              <td class="tt-break">BREAK</td>
+              <td class="tt-class">Economics<br/><small>Geography</small></td>
+              <td class="tt-class">English<br/><small>Study: Accounting</small></td>
+              <td class="tt-study">Study Time<br/><small>Any Subject</small></td>
+            </tr>
+            <tr>
+              <td class="day-label">Thursday</td>
+              <td class="tt-class">Business Studies<br/><small>Physics</small></td>
+              <td class="tt-class">Accounting<br/><small>Life Sciences</small></td>
+              <td class="tt-class">Mathematics<br/><small>History</small></td>
+              <td class="tt-break">BREAK</td>
+              <td class="tt-class">Maths Lit</td>
+              <td class="tt-class">Geography<br/><small>Study: Economics</small></td>
+              <td class="tt-class">English</td>
+            </tr>
+            <tr>
+              <td class="day-label">Friday</td>
+              <td class="tt-class">Physics<br/><small>Economics</small></td>
+              <td class="tt-class">Business Studies<br/><small>Study: Life Sciences</small></td>
+              <td class="tt-class">Mathematics<br/><small>History</small></td>
+              <td class="tt-break">BREAK</td>
+              <td class="tt-class">Maths Lit</td>
+              <td class="tt-class">English<br/><small>Study: Geography</small></td>
+              <td class="tt-study">Study Time<br/><small>Any Subject</small></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="tt-note fade-up">* Break runs from 11:00 – 12:00 daily. Study time slots are supervised and open to all enrolled learners.</p>
+
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta-inner">
+      <h2>Want to join a class?</h2>
+      <p>Enrol today and we'll place you in the right sessions for your subjects.</p>
+      <a href="contact.html" class="btn-primary">Enrol Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Ladysmith Learning Centre" class="logo-img footer-logo" />
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">Registered with SARS | Tax Ref No: 9007722292 | © 2020–2026 Ladysmith Learning Centre. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

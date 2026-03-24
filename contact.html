@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Ladysmith Learning Centre</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Ladysmith Learning Centre" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <a href="apply.html" class="enroll-btn">Apply Now</a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+    <ul class="mobile-menu" id="mobileMenu">
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="programmes.html" onclick="toggleMenu()">Programmes</a></li>
+      <li><a href="timetable.html" onclick="toggleMenu()">Timetable</a></li>
+      <li><a href="gallery.html" onclick="toggleMenu()">Gallery</a></li>
+      <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+      <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+      <li><a href="contact.html" onclick="toggleMenu()">Enrol Now</a></li>
+    </ul>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="container">
+      <p class="hero-tag">We'd Love to Hear From You</p>
+      <h1>Get in Touch</h1>
+      <p>Ready to enrol, have a question, or just want to find out more? Reach out and we'll get back to you quickly.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container contact-wrapper">
+
+      <div class="contact-info">
+        <h2>Contact Details</h2>
+        <div class="info-item">
+          <span class="info-icon">📍</span>
+          <div>
+            <strong>Address</strong>
+            <p>160 Murchison Street, Old Riga Building, Room 3, Ladysmith</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📞</span>
+          <div>
+            <strong>Phone</strong>
+            <p>072 983 7173</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">✉️</span>
+          <div>
+            <strong>Email</strong>
+            <p>ladysmithlearningc@gmail.com</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🕐</span>
+          <div>
+            <strong>Hours</strong>
+            <p>Mon–Fri: 8am – 7pm<br />Saturday: 9am – 2pm</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🏦</span>
+          <div>
+            <strong>Banking Details</strong>
+            <p>Capitec Bank<br />Account No: 1591378913</p>
+          </div>
+        </div>
+
+        <div class="enrol-note">
+          <h3>Ready to Enrol?</h3>
+          <p>Fill in the form and let us know which programme you're interested in. We'll contact you to confirm your place and discuss next steps.</p>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <h2>Send Us a Message</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="+27 00 000 0000" />
+        </div>
+        <div class="form-group">
+          <label for="programme">Programme of Interest</label>
+          <select id="programme">
+            <option value="">-- Select a programme --</option>
+            <option>Grade 12 Upgrade & Repeat</option>
+            <option>After-School Tutoring (Grades 8–12)</option>
+            <option>One-on-One Tutoring</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Tell us a bit about yourself or ask us anything..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary full-width">Send Message</button>
+        <p class="form-success" id="formSuccess">Thanks! We'll be in touch with you shortly.</p>
+      </form>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Ladysmith Learning Centre" class="logo-img footer-logo" />
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">Registered with SARS | Tax Ref No: 9007722292 | &copy; 2020&ndash;2026 Ladysmith Learning Centre. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

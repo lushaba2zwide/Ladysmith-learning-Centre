@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ladysmith Learning Centre</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Ladysmith Learning Centre" class="logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="apply.html" class="enroll-btn">Apply Now</a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">&#9776;</button>
+    </nav>
+    <ul class="mobile-menu" id="mobileMenu">
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+      <li><a href="programmes.html" onclick="toggleMenu()">Programmes</a></li>
+      <li><a href="timetable.html" onclick="toggleMenu()">Timetable</a></li>
+      <li><a href="about.html" onclick="toggleMenu()">About</a></li>
+      <li><a href="gallery.html" onclick="toggleMenu()">Gallery</a></li>
+      <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+      <li><a href="contact.html" onclick="toggleMenu()">Enrol Now</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="hero-tag">Welcome to Ladysmith Learning Centre</span>
+        <h1>Learn, Grow,<br /><em>Transform</em> Your Life</h1>
+        <p class="hero-sub">Quality education and tutoring for anyone who wants to learn, improve, and build a better future in Ladysmith.</p>
+        <div class="hero-buttons">
+          <a href="programmes.html" class="btn-primary">Explore Programmes</a>
+          <a href="contact.html" class="btn-outline">Enrol Now</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Students Helped</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Programmes Offered</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">15+</span>
+          <span class="stat-label">Expert Tutors</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder's Message -->
+  <section class="founder-section">
+    <div class="container founder-grid fade-up">
+      <div class="founder-img-box">
+        <div class="founder-initials">SZ</div>
+        <div class="founder-badge">Founder & Educator</div>
+      </div>
+      <div class="founder-text">
+        <p class="section-tag">A Word From Our Founder</p>
+        <h2>Built on a Belief That Education Changes Lives</h2>
+        <blockquote>
+          "I started Ladysmith Learning Centre in 2020 because I saw too many learners falling through the cracks — not because they lacked ability, but because they lacked support. Every learner who walks through our doors deserves a real chance, and that is exactly what we give them."
+        </blockquote>
+        <p class="founder-name">— Mr S. Zwane, Founder</p>
+        <a href="about.html" class="btn-primary">More About Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subjects We Offer -->
+  <section class="subjects-section">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Subjects We <span>Offer</span></h2>
+        <p>We cover all major CAPS subjects across Grade 8 to 12 and matric upgrade programmes.</p>
+      </div>
+      <div class="subjects-grid fade-up">
+        <div class="subject-pill">📐 Mathematics</div>
+        <div class="subject-pill">📊 Mathematical Literacy</div>
+        <div class="subject-pill">🔬 Physical Sciences</div>
+        <div class="subject-pill">🌿 Life Sciences</div>
+        <div class="subject-pill">🌾 Agricultural Sciences</div>
+        <div class="subject-pill">📖 English Home Language</div>
+        <div class="subject-pill">📝 English First Additional Language</div>
+        <div class="subject-pill">🗣️ IsiZulu</div>
+        <div class="subject-pill">💰 Accounting</div>
+        <div class="subject-pill">📈 Economics</div>
+        <div class="subject-pill">🏢 Business Studies</div>
+        <div class="subject-pill">🗺️ Geography</div>
+        <div class="subject-pill">📜 History</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>How to <span>Enrol</span></h2>
+        <p>Getting started is simple. Follow these four steps and you'll be in class in no time.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step fade-up">
+          <div class="step-num">01</div>
+          <h3>Contact Us</h3>
+          <p>Call us on <strong>072 983 7173</strong> or send an email to <strong>ladysmithlearningc@gmail.com</strong> to express your interest.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">02</div>
+          <h3>Choose Your Subjects</h3>
+          <p>Tell us which subjects you need help with. We'll advise you on the best programme — after-school tutoring, one-on-one, or matric upgrade.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">03</div>
+          <h3>Pay Registration</h3>
+          <p>Pay the once-off <strong>R500 registration fee</strong> via Capitec Bank (Acc: 1591378913) to secure your place.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">04</div>
+          <h3>Start Learning</h3>
+          <p>Attend your first class at <strong>160 Murchison Street, Old Riga Building, Room 3</strong>. Classes run Mon–Fri 08:00–15:00.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Info Strip -->
+  <section class="info-strip">
+    <div class="container info-strip-grid">
+      <div class="info-strip-item fade-up">
+        <span class="info-strip-icon">📍</span>
+        <div>
+          <strong>Location</strong>
+          <p>160 Murchison Street, Old Riga Building, Room 3, Ladysmith</p>
+        </div>
+      </div>
+      <div class="info-strip-item fade-up">
+        <span class="info-strip-icon">🕐</span>
+        <div>
+          <strong>Hours</strong>
+          <p>Mon–Fri: 08:00–15:00 &nbsp;|&nbsp; Sat: 09:00–14:00</p>
+        </div>
+      </div>
+      <div class="info-strip-item fade-up">
+        <span class="info-strip-icon">📞</span>
+        <div>
+          <strong>Call Us</strong>
+          <p>072 983 7173</p>
+        </div>
+      </div>
+      <div class="info-strip-item fade-up">
+        <span class="info-strip-icon">✉️</span>
+        <div>
+          <strong>Email</strong>
+          <p>ladysmithlearningc@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="why-us">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Why Choose <span>Us</span></h2>
+        <p>We're committed to making quality education accessible to everyone in our community.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature fade-up">
+          <span class="feature-icon">🎯</span>
+          <h3>Personalised Learning</h3>
+          <p>Small groups and one-on-one sessions tailored to each learner's pace and needs.</p>
+        </div>
+        <div class="feature fade-up">
+          <span class="feature-icon">📋</span>
+          <h3>SA Curriculum Aligned</h3>
+          <p>All our tutors are experienced with the CAPS curriculum and know what learners need.</p>
+        </div>
+        <div class="feature fade-up">
+          <span class="feature-icon">🕐</span>
+          <h3>Flexible Scheduling</h3>
+          <p>After-school, weekend and evening sessions to fit around your life.</p>
+        </div>
+        <div class="feature fade-up">
+          <span class="feature-icon">💰</span>
+          <h3>Affordable Fees</h3>
+          <p>Competitive pricing with payment plans so cost is never a barrier to learning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programmes Preview -->
+  <section class="programmes-preview">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Our <span>Programmes</span></h2>
+        <p>From after-school support to full matric upgrades, we have a programme for you.</p>
+      </div>
+      <div class="preview-grid">
+        <div class="preview-card fade-up">
+          <span class="preview-icon">🎓</span>
+          <h3>Grade 12 Upgrade & Repeat</h3>
+          <p>Structured courses to help you pass or improve your matric results.</p>
+          <a href="programmes.html" class="card-link">Learn more →</a>
+        </div>
+        <div class="preview-card fade-up">
+          <span class="preview-icon">📚</span>
+          <h3>After-School Tutoring</h3>
+          <p>Afternoon support sessions for Grade 8–12 learners across all subjects.</p>
+          <a href="programmes.html" class="card-link">Learn more →</a>
+        </div>
+        <div class="preview-card fade-up">
+          <span class="preview-icon">✏️</span>
+          <h3>One-on-One Tutoring</h3>
+          <p>Focused, personalised sessions for learners who need dedicated attention.</p>
+          <a href="programmes.html" class="card-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Simple, Transparent <span>Pricing</span></h2>
+        <p>No hidden fees. Just straightforward, affordable education.</p>
+      </div>
+      <div class="pricing-grid fade-up">
+        <div class="pricing-card">
+          <div class="pricing-icon">📋</div>
+          <h3>Registration Fee</h3>
+          <div class="price">R500</div>
+          <p class="price-note">Once-off payment</p>
+          <ul class="price-list">
+            <li>Paid once on enrolment</li>
+            <li>Covers admin & placement</li>
+            <li>Non-refundable</li>
+          </ul>
+        </div>
+        <div class="pricing-card featured-price">
+          <div class="pricing-icon">📚</div>
+          <h3>Monthly Tuition</h3>
+          <div class="price">R300 <span>/ subject</span></div>
+          <p class="price-note">Per month, per subject</p>
+          <ul class="price-list">
+            <li>All subjects available</li>
+            <li>Enrol in as many as you need</li>
+            <li>Payment via Capitec Bank</li>
+            <li>Acc No: 1591378913</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-icon">🧮</div>
+          <h3>Example</h3>
+          <div class="price">R1 400</div>
+          <p class="price-note">First month (4 subjects)</p>
+          <ul class="price-list">
+            <li>R500 registration</li>
+            <li>+ R300 × 4 subjects</li>
+            <li>= R1 400 total</li>
+            <li>R1 200/month thereafter</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slideshow -->
+  <section class="slideshow-section">
+    <div class="section-header fade-up">
+      <h2>Life at <span>Our Centre</span></h2>
+      <p>See what learning looks like at Ladysmith Learning Centre.</p>
+    </div>
+    <div class="slideshow" id="slideshow">
+      <div class="slide active"><img src="photos/IMG-20260324-WA0015.jpg" alt="Ladysmith Learning Centre" /></div>
+      <div class="slide"><img src="photos/IMG-20260324-WA0016.jpg" alt="Ladysmith Learning Centre" /></div>
+      <div class="slide"><img src="photos/IMG-20260324-WA0017.jpg" alt="Ladysmith Learning Centre" /></div>
+      <div class="slide"><img src="photos/IMG-20260324-WA0018.jpg" alt="Ladysmith Learning Centre" /></div>
+      <div class="slide"><img src="photos/IMG-20260324-WA0019.jpg" alt="Ladysmith Learning Centre" /></div>
+      <div class="slide"><img src="photos/IMG-20260324-WA0020.jpg" alt="Ladysmith Learning Centre" /></div>
+      <button class="ss-prev" onclick="moveSlide(-1)">&#8592;</button>
+      <button class="ss-next" onclick="moveSlide(1)">&#8594;</button>
+      <div class="ss-dots" id="ssDots"></div>
+    </div>
+    <div class="slideshow-cta fade-up">
+      <a href="gallery.html" class="btn-primary">View Full Gallery</a>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="team">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Meet Our <span>Teachers</span></h2>
+        <p>Experienced educators dedicated to helping every learner succeed.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card fade-up">
+          <div class="team-avatar">SZ</div>
+          <h3>Mr S. Zwane</h3>
+          <p class="team-role">Founder & Educator</p>
+          <ul class="team-subjects">
+            <li>Life Sciences</li>
+            <li>Agricultural Sciences</li>
+            <li>Geography</li>
+          </ul>
+        </div>
+        <div class="team-card fade-up">
+          <div class="team-avatar">MM</div>
+          <h3>Mr Mwelase</h3>
+          <p class="team-role">Educator</p>
+          <ul class="team-subjects">
+            <li>Mathematics</li>
+            <li>Mathematical Literacy</li>
+          </ul>
+        </div>
+        <div class="team-card fade-up">
+          <div class="team-avatar">MD</div>
+          <h3>Mr Madide</h3>
+          <p class="team-role">Educator</p>
+          <ul class="team-subjects">
+            <li>Physical Sciences</li>
+          </ul>
+        </div>
+        <div class="team-card fade-up">
+          <div class="team-avatar">GD</div>
+          <h3>Mr Gamede</h3>
+          <p class="team-role">Educator</p>
+          <ul class="team-subjects">
+            <li>English Home Language</li>
+            <li>English First Additional Language</li>
+            <li>History</li>
+          </ul>
+        </div>
+        <div class="team-card fade-up">
+          <div class="team-avatar">KB</div>
+          <h3>Mr Kubheka</h3>
+          <p class="team-role">Educator</p>
+          <ul class="team-subjects">
+            <li>Economics</li>
+            <li>Accounting</li>
+            <li>Business Studies</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner fade-up">
+      <h2>Ready to take the first step?</h2>
+      <p>Join hundreds of learners who have already transformed their lives through education.</p>
+      <a href="contact.html" class="btn-primary">Get in Touch Today</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Ladysmith Learning Centre" class="logo-img footer-logo" />
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="programmes.html">Programmes</a></li>
+        <li><a href="timetable.html">Timetable</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p class="footer-copy">Registered with SARS | Tax Ref No: 9007722292 | © 2020–2026 Ladysmith Learning Centre. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
