@@ -97,7 +97,10 @@
       </div>
 
       <!-- Application Form -->
-      <form class="apply-form" id="applyForm" action="https://formspree.io/f/xaqprkbz" method="POST" onsubmit="handleApply(event)" novalidate>
+      <form class="apply-form" id="applyForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleApply(event)" novalidate>
+        <input type="hidden" name="access_key" value="ed5bd4fe-f420-49f2-b104-ed0fd8aacc1c" />
+        <input type="hidden" name="subject" value="New Application - Ladysmith Learning Centre" />
+        <input type="hidden" name="from_name" value="LLC Application Form" />
         <h2>Application Form</h2>
         <p class="form-intro">Fields marked <span class="req">*</span> are required.</p>
 

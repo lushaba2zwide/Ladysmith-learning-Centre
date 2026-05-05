@@ -25,7 +25,9 @@ async function handleSubmit(event) {
       headers: { 'Accept': 'application/json' }
     });
 
-    if (res.ok) {
+    const json = await res.json();
+
+    if (json.success) {
       const success = document.getElementById('formSuccess');
       success.classList.add('show');
       form.reset();
@@ -80,7 +82,9 @@ async function handleApply(event) {
       headers: { 'Accept': 'application/json' }
     });
 
-    if (res.ok) {
+    const json = await res.json();
+
+    if (json.success) {
       form.style.display = 'none';
       const success = document.getElementById('applySuccess');
       success.classList.add('show');
