@@ -1,15 +1,47 @@
-// ── Mobile menu ──
+// ── Toggle payer details ──
+function togglePayerDetails(value) {
+  const box = document.getElementById('payerDetails');
+  if (!box) return;
+  box.style.display = (value === 'parent' || value === 'sponsor' || value === 'other') ? 'block' : 'none';
+}
+
+
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('active');
 }
 
 // ── Contact form ──
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
-  const success = document.getElementById('formSuccess');
-  success.classList.add('show');
-  event.target.reset();
-  setTimeout(() => success.classList.remove('show'), 6000);
+  const form = event.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      const success = document.getElementById('formSuccess');
+      success.classList.add('show');
+      form.reset();
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+      setTimeout(() => success.classList.remove('show'), 6000);
+    } else {
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or call us on 072 983 7173.');
+    }
+  } catch (err) {
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+    alert('Could not send. Please check your connection and try again.');
+  }
 }
 
 // ── Apply form ──
@@ -35,7 +67,9 @@ async function handleApply(event) {
     const data = new FormData(form);
     // Add named inputs that use id instead of name
     ['firstName','lastName','dob','gender','idNumber','phone','email','address',
-     'programme','grade','school','guardianName','guardianPhone','hearAbout','notes'].forEach(id => {
+     'programme','grade','school','guardianName','guardianRelation','guardianPhone',
+     'guardianEmail','guardianId','payerType','payerName','payerPhone','payerRelation',
+     'paymentMethod','hearAbout','notes'].forEach(id => {
       const el = document.getElementById(id);
       if (el && el.value) data.append(id, el.value);
     });

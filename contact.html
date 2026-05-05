@@ -93,25 +93,25 @@
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/xgopwrne" method="POST" onsubmit="handleSubmit(event)">
         <h2>Send Us a Message</h2>
         <div class="form-row">
           <div class="form-group">
             <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Your full name" required />
+            <input type="text" id="name" name="name" placeholder="Your full name" required />
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="your@email.com" required />
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
           </div>
         </div>
         <div class="form-group">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="+27 00 000 0000" />
+          <input type="tel" id="phone" name="phone" placeholder="+27 00 000 0000" />
         </div>
         <div class="form-group">
           <label for="programme">Programme of Interest</label>
-          <select id="programme">
+          <select id="programme" name="programme">
             <option value="">-- Select a programme --</option>
             <option>Grade 12 Upgrade & Repeat</option>
             <option>After-School Tutoring (Grades 8–12)</option>
@@ -121,7 +121,7 @@
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" rows="5" placeholder="Tell us a bit about yourself or ask us anything..."></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us a bit about yourself or ask us anything..."></textarea>
         </div>
         <button type="submit" class="btn-primary full-width">Send Message</button>
         <p class="form-success" id="formSuccess">Thanks! We'll be in touch with you shortly.</p>

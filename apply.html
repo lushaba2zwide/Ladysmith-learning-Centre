@@ -214,9 +214,79 @@
             <input type="text" id="guardianName" name="guardianName" placeholder="Full name" />
           </div>
           <div class="form-group">
-            <label for="guardianPhone">Guardian Phone</label>
+            <label for="guardianRelation">Relationship to Learner</label>
+            <select id="guardianRelation" name="guardianRelation">
+              <option value="">-- Select --</option>
+              <option>Parent</option>
+              <option>Guardian</option>
+              <option>Grandparent</option>
+              <option>Sibling</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guardianPhone">Guardian Phone / WhatsApp</label>
             <input type="tel" id="guardianPhone" name="guardianPhone" placeholder="e.g. 083 000 0000" />
           </div>
+          <div class="form-group">
+            <label for="guardianEmail">Guardian Email</label>
+            <input type="email" id="guardianEmail" name="guardianEmail" placeholder="guardian@email.com" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="guardianId">Guardian ID Number</label>
+          <input type="text" id="guardianId" name="guardianId" placeholder="13-digit SA ID number" maxlength="13" />
+        </div>
+
+        <div class="form-section-title">Payment Responsibility</div>
+
+        <div class="form-group">
+          <label for="payerType">Who will be paying for the classes? <span class="req">*</span></label>
+          <select id="payerType" name="payerType" required onchange="togglePayerDetails(this.value)">
+            <option value="">-- Select --</option>
+            <option value="self">The learner themselves</option>
+            <option value="parent">Parent / Guardian</option>
+            <option value="sponsor">Sponsor / Employer</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div id="payerDetails" style="display:none;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="payerName">Payer Full Name <span class="req">*</span></label>
+              <input type="text" id="payerName" name="payerName" placeholder="Full name of person paying" />
+            </div>
+            <div class="form-group">
+              <label for="payerPhone">Payer Phone / WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="payerPhone" name="payerPhone" placeholder="e.g. 082 000 0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="payerRelation">Payer's Relationship to Learner</label>
+            <input type="text" id="payerRelation" name="payerRelation" placeholder="e.g. Mother, Employer, Uncle" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="paymentMethod">Preferred Payment Method</label>
+          <select id="paymentMethod" name="paymentMethod">
+            <option value="">-- Select --</option>
+            <option>Capitec Bank Transfer</option>
+            <option>FNB Bank Transfer</option>
+            <option>Standard Bank Transfer</option>
+            <option>ABSA Bank Transfer</option>
+            <option>Nedbank Transfer</option>
+            <option>TymeBank Transfer</option>
+            <option>African Bank Transfer</option>
+            <option>Cash</option>
+            <option>Other</option>
+          </select>
+          <p class="field-hint receipt-note">⚠️ Please keep your proof of payment / receipt and bring it with you when you come in for registration. No receipt = no registration confirmation.</p>
         </div>
 
         <div class="form-group">
