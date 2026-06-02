@@ -1463,3 +1463,256 @@ footer {
   .apply-form { padding: 2rem 1.5rem; }
   .checkbox-grid { grid-template-columns: 1fr 1fr; }
 }
+
+
+/* ── APPLICATION SUMMARY MODAL (PDF) ── */
+#appSummaryModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-summary-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(4px);
+}
+
+.app-summary-box {
+  position: relative;
+  z-index: 2;
+  background: var(--white);
+  border-radius: var(--radius);
+  max-width: 900px;
+  width: 92%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+  padding: 2rem;
+}
+
+.app-summary-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  background: rgba(0,0,0,0.6);
+  color: var(--white);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.app-summary-close:hover { background: var(--accent2); }
+
+.app-summary-print {
+  margin-bottom: 1.5rem;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+}
+
+/* Application Summary Document Styles */
+.as-doc {
+  background: var(--white);
+  color: var(--text);
+  padding: 2rem;
+  line-height: 1.5;
+}
+
+.as-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 3px solid var(--black);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.as-logo { height: 70px; width: auto; }
+
+.as-header-text h1 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--black);
+  margin-bottom: 0.3rem;
+}
+
+.as-header-text p {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin: 0.1rem 0;
+}
+
+.as-title-bar {
+  background: var(--black);
+  color: var(--accent);
+  padding: 0.8rem 1.2rem;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+}
+
+.as-section {
+  margin-bottom: 1.5rem;
+  page-break-inside: avoid;
+}
+
+.as-section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  color: var(--accent2);
+  margin-bottom: 0.8rem;
+  border-bottom: 2px solid var(--light-bg);
+  padding-bottom: 0.4rem;
+}
+
+.as-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.as-table tr { border-bottom: 1px solid var(--border); }
+.as-table tr:last-child { border-bottom: none; }
+
+.as-label {
+  font-weight: 700;
+  color: var(--text);
+  padding: 0.6rem 0;
+  width: 35%;
+  vertical-align: top;
+}
+
+.as-value {
+  color: var(--text-light);
+  padding: 0.6rem 0;
+}
+
+.as-amount { font-weight: 800; color: var(--text); font-size: 1rem; }
+
+.as-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.as-subject-tag {
+  background: var(--light-bg);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.as-notes-text {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  padding: 0.5rem 0;
+}
+
+.as-receipt-warning {
+  background: rgba(255,107,53,0.1);
+  border-left: 4px solid var(--accent2);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text);
+  border-radius: 6px;
+}
+
+.as-bank {
+  background: var(--black);
+  color: var(--white);
+  padding: 1rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.as-bank strong { color: var(--accent); }
+
+.as-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--border);
+  page-break-inside: avoid;
+}
+
+.as-sig-box { text-align: center; flex: 1; }
+
+.as-sig-box p:first-child {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 0.4rem;
+}
+
+.as-sig-line {
+  border-bottom: 2px solid var(--black);
+  margin: 2rem 0 0.6rem;
+}
+
+.as-sig-box p:last-child {
+  font-size: 0.85rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.as-doc-footer {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Print Styles */
+@media print {
+  body * { visibility: hidden; }
+  
+  #asPrintDoc, #asPrintDoc * { visibility: visible; }
+  
+  #asPrintDoc {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 1cm;
+  }
+  
+  .app-summary-close,
+  .app-summary-print,
+  .app-summary-overlay { display: none !important; }
+  
+  .as-section { page-break-inside: avoid; }
+  .as-footer { page-break-inside: avoid; }
+}
+
+@media (max-width: 768px) {
+  .as-header { flex-direction: column; text-align: center; }
+  .as-title-bar { flex-direction: column; gap: 0.3rem; text-align: center; }
+  .as-footer { flex-direction: column; }
+}

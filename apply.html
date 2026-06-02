@@ -322,12 +322,26 @@
           <span class="success-icon">🎉</span>
           <h3>Application Received!</h3>
           <p>Thank you for applying to Ladysmith Learning Centre. We will contact you on the number provided within 1–2 business days to confirm your enrolment.</p>
+          <button class="btn-primary" onclick="openAppSummary()" style="margin-top:1.2rem;">📄 View &amp; Download Your Application</button>
         </div>
 
       </form>
 
     </div>
   </section>
+
+  <!-- Application Summary Modal (Print/PDF) -->
+  <div id="appSummaryModal" style="display:none;">
+    <div class="app-summary-overlay" onclick="closeAppSummary()"></div>
+    <div class="app-summary-box" id="appSummaryBox">
+      <button class="app-summary-close" onclick="closeAppSummary()">✕ Close</button>
+      <button class="btn-primary app-summary-print" onclick="printSummary()">🖨️ Print / Save as PDF</button>
+
+      <div id="appSummaryContent">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-inner">

@@ -65,9 +65,44 @@ async function handleApply(event) {
   submitBtn.textContent = 'Submitting...';
   submitBtn.disabled = true;
 
+  // Capture data before submission for PDF
+  const subjects = Array.from(checked).map(c => c.value);
+  const monthly = subjects.length * 300;
+  const firstMonth = monthly + 500;
+
+  const appData = {
+    refNo: 'LLC-' + Date.now().toString().slice(-6),
+    date: new Date().toLocaleDateString('en-ZA', { day:'2-digit', month:'long', year:'numeric' }),
+    firstName:      (document.getElementById('firstName')?.value || '').trim(),
+    lastName:       (document.getElementById('lastName')?.value || '').trim(),
+    dob:            (document.getElementById('dob')?.value || ''),
+    gender:         (document.getElementById('gender')?.value || ''),
+    idNumber:       (document.getElementById('idNumber')?.value || ''),
+    phone:          (document.getElementById('phone')?.value || ''),
+    email:          (document.getElementById('email')?.value || ''),
+    address:        (document.getElementById('address')?.value || ''),
+    programme:      (document.getElementById('programme')?.value || ''),
+    grade:          (document.getElementById('grade')?.value || ''),
+    school:         (document.getElementById('school')?.value || ''),
+    subjects,
+    monthly,
+    firstMonth,
+    guardianName:   (document.getElementById('guardianName')?.value || ''),
+    guardianRelation:(document.getElementById('guardianRelation')?.value || ''),
+    guardianPhone:  (document.getElementById('guardianPhone')?.value || ''),
+    guardianEmail:  (document.getElementById('guardianEmail')?.value || ''),
+    guardianId:     (document.getElementById('guardianId')?.value || ''),
+    payerType:      (document.getElementById('payerType')?.value || ''),
+    payerName:      (document.getElementById('payerName')?.value || ''),
+    payerPhone:     (document.getElementById('payerPhone')?.value || ''),
+    payerRelation:  (document.getElementById('payerRelation')?.value || ''),
+    paymentMethod:  (document.getElementById('paymentMethod')?.value || ''),
+    hearAbout:      (document.getElementById('hearAbout')?.value || ''),
+    notes:          (document.getElementById('notes')?.value || ''),
+  };
+
   try {
     const data = new FormData(form);
-    // Add named inputs that use id instead of name
     ['firstName','lastName','dob','gender','idNumber','phone','email','address',
      'programme','grade','school','guardianName','guardianRelation','guardianPhone',
      'guardianEmail','guardianId','payerType','payerName','payerPhone','payerRelation',
@@ -75,6 +110,12 @@ async function handleApply(event) {
       const el = document.getElementById(id);
       if (el && el.value) data.append(id, el.value);
     });
+
+    // Add formatted subjects list for email readability
+    data.append('Subjects Selected', subjects.join(', '));
+    data.append('Monthly Fee', 'R' + monthly);
+    data.append('First Month Total', 'R' + firstMonth + ' (incl. R500 registration)');
+    data.append('Reference Number', appData.refNo);
 
     const res = await fetch(form.action, {
       method: 'POST',
@@ -85,6 +126,7 @@ async function handleApply(event) {
     const json = await res.json();
 
     if (json.success) {
+      buildAppSummary(appData);
       form.style.display = 'none';
       const success = document.getElementById('applySuccess');
       success.classList.add('show');
@@ -99,6 +141,153 @@ async function handleApply(event) {
     submitBtn.disabled = false;
     alert('Could not send. Please check your connection and try again.');
   }
+}
+
+// ── Build application summary for PDF ──
+function buildAppSummary(d) {
+  const row = (label, value) => value
+    ? `<tr><td class="as-label">${label}</td><td class="as-value">${value}</td></tr>`
+    : '';
+
+  const guardianSection = (d.guardianName || d.guardianPhone)
+    ? `<div class="as-section">
+        <div class="as-section-title">Parent / Guardian</div>
+        <table class="as-table">
+          ${row('Full Name', d.guardianName)}
+          ${row('Relationship', d.guardianRelation)}
+          ${row('Phone / WhatsApp', d.guardianPhone)}
+          ${row('Email', d.guardianEmail)}
+          ${row('ID Number', d.guardianId)}
+        </table>
+      </div>` : '';
+
+  const payerSection = (d.payerName || d.payerType)
+    ? `<div class="as-section">
+        <div class="as-section-title">Payment Responsibility</div>
+        <table class="as-table">
+          ${row('Who is Paying', d.payerType === 'self' ? 'The learner themselves' : d.payerType)}
+          ${row('Payer Name', d.payerName)}
+          ${row('Payer Phone', d.payerPhone)}
+          ${row('Relationship', d.payerRelation)}
+          ${row('Payment Method', d.paymentMethod)}
+        </table>
+      </div>` : '';
+
+  const html = `
+    <div class="as-doc" id="asPrintDoc">
+      <div class="as-header">
+        <img src="logo.png" alt="LLC Logo" class="as-logo" />
+        <div class="as-header-text">
+          <h1>Ladysmith Learning Centre</h1>
+          <p>160 Murchison Street, Old Riga Building, Room 3, Ladysmith</p>
+          <p>Tel: 072 983 7173 &nbsp;|&nbsp; ladysmithlearningc@gmail.com</p>
+          <p>SARS Tax Ref: 9007722292</p>
+        </div>
+      </div>
+
+      <div class="as-title-bar">
+        <span>APPLICATION FORM</span>
+        <span>Ref: ${d.refNo} &nbsp;|&nbsp; Date: ${d.date}</span>
+      </div>
+
+      <div class="as-section">
+        <div class="as-section-title">Personal Information</div>
+        <table class="as-table">
+          ${row('Full Name', d.firstName + ' ' + d.lastName)}
+          ${row('Date of Birth', d.dob)}
+          ${row('Gender', d.gender)}
+          ${row('ID Number', d.idNumber || 'Not provided')}
+        </table>
+      </div>
+
+      <div class="as-section">
+        <div class="as-section-title">Contact Details</div>
+        <table class="as-table">
+          ${row('Phone / WhatsApp', d.phone)}
+          ${row('Email Address', d.email || 'Not provided')}
+          ${row('Home Address', d.address)}
+        </table>
+      </div>
+
+      <div class="as-section">
+        <div class="as-section-title">Academic Information</div>
+        <table class="as-table">
+          ${row('Programme', d.programme)}
+          ${row('Current / Last Grade', d.grade)}
+          ${row('Previous School', d.school || 'Not provided')}
+        </table>
+      </div>
+
+      <div class="as-section">
+        <div class="as-section-title">Subjects Selected (${d.subjects.length})</div>
+        <div class="as-subjects">
+          ${d.subjects.map(s => `<span class="as-subject-tag">${s}</span>`).join('')}
+        </div>
+        <table class="as-table" style="margin-top:0.8rem;">
+          <tr><td class="as-label">Monthly Fee</td><td class="as-value as-amount">R${d.monthly.toLocaleString()}</td></tr>
+          <tr><td class="as-label">First Month Total</td><td class="as-value as-amount">R${d.firstMonth.toLocaleString()} <small>(incl. R500 once-off registration)</small></td></tr>
+        </table>
+      </div>
+
+      ${guardianSection}
+      ${payerSection}
+
+      <div class="as-section">
+        <div class="as-section-title">How did you hear about us?</div>
+        <p class="as-notes-text">${d.hearAbout || 'Not specified'}</p>
+      </div>
+
+      ${d.notes ? `<div class="as-section">
+        <div class="as-section-title">Additional Notes</div>
+        <p class="as-notes-text">${d.notes}</p>
+      </div>` : ''}
+
+      <div class="as-receipt-warning">
+        ⚠️ Please keep your proof of payment and bring it when coming for registration.
+        No receipt = no registration confirmation.
+      </div>
+
+      <div class="as-bank">
+        <strong>Payment Details:</strong> Capitec Bank &nbsp;|&nbsp; Account No: 1591378913 &nbsp;|&nbsp; Reference: ${d.firstName} ${d.lastName}
+      </div>
+
+      <div class="as-footer">
+        <div class="as-sig-box">
+          <p>Applicant Signature</p>
+          <div class="as-sig-line"></div>
+          <p>${d.firstName} ${d.lastName}</p>
+        </div>
+        <div class="as-sig-box">
+          <p>Centre Official</p>
+          <div class="as-sig-line"></div>
+          <p>Mr S. Zwane — Founder</p>
+        </div>
+        <div class="as-sig-box">
+          <p>Date</p>
+          <div class="as-sig-line"></div>
+          <p>${d.date}</p>
+        </div>
+      </div>
+
+      <p class="as-doc-footer">Registered with SARS | Tax Ref No: 9007722292 | © 2020–2026 Ladysmith Learning Centre</p>
+    </div>
+  `;
+
+  document.getElementById('appSummaryContent').innerHTML = html;
+}
+
+function openAppSummary() {
+  document.getElementById('appSummaryModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAppSummary() {
+  document.getElementById('appSummaryModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function printSummary() {
+  window.print();
 }
 
 // ── Live subject cost calculator ──
