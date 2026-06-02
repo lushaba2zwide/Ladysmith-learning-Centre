@@ -1243,26 +1243,101 @@ footer {
   .nav-links, .enroll-btn { display: none; }
   .menu-toggle { display: block; }
 
-  .hero { padding: 4rem 1.5rem; }
-  .hero-inner { flex-direction: column; text-align: center; }
-  .hero h1 { font-size: 2.6rem; }
-  .hero-sub { max-width: 100%; }
-  .hero-buttons { justify-content: center; }
-  .hero-stats { grid-template-columns: 1fr 1fr; }
+  /* Hero */
+  .hero { padding: 3.5rem 1.2rem 3rem; }
+  .hero-inner { flex-direction: column; text-align: center; gap: 2rem; }
+  .hero h1 { font-size: 2.2rem; letter-spacing: -1px; }
+  .hero-sub { max-width: 100%; font-size: 1rem; }
+  .hero-buttons { justify-content: center; flex-direction: column; align-items: center; }
+  .hero-buttons a { width: 100%; max-width: 320px; text-align: center; }
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 0.8rem; width: 100%; }
+  .stat-card { padding: 1rem 1.2rem; gap: 1rem; }
+  .stat-num { font-size: 1.8rem; }
 
-  .programme-block, .programme-block.reverse { grid-template-columns: 1fr; direction: ltr; }
+  /* Page hero */
+  .page-hero { padding: 3.5rem 1.2rem; }
+  .page-hero h1 { font-size: 1.9rem; }
+  .page-hero p { font-size: 0.95rem; }
+
+  /* Sections */
+  .why-us, .programmes-preview, .how-it-works,
+  .subjects-section, .founder-section,
+  .team, .pricing, .cta,
+  .about-mission, .values, .programmes-detail,
+  .contact-section, .gallery-section { padding: 4rem 1.2rem; }
+
+  .section-header { margin-bottom: 2.5rem; }
+  .section-header h2 { font-size: 1.8rem; }
+  .section-header p { font-size: 0.93rem; }
+
+  /* Grids → single column */
+  .programme-block, .programme-block.reverse { grid-template-columns: 1fr; direction: ltr; gap: 2rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .contact-wrapper { grid-template-columns: 1fr; }
+  .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
   .form-row { grid-template-columns: 1fr; }
   .founder-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
   .founder-text blockquote { text-align: left; }
   .steps-grid { grid-template-columns: 1fr; }
-  .info-strip-grid { grid-template-columns: 1fr; }
+  .info-strip-grid { grid-template-columns: 1fr 1fr; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .preview-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-card.featured-price { transform: scale(1); }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid { gap: 1rem; }
+  .team-card { width: calc(50% - 0.5rem); min-width: 160px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .checkbox-grid { grid-template-columns: 1fr 1fr; }
 
-  .footer-inner { flex-direction: column; text-align: center; }
-  .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
-  .page-hero h1 { font-size: 2.2rem; }
-  .cta h2 { font-size: 1.8rem; }
+  /* Apply page */
+  .apply-section { padding: 3rem 1.2rem; }
+  .apply-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+  .apply-info { position: static; padding: 1.8rem; }
+  .apply-form { padding: 1.8rem 1.2rem; }
+
+  /* Contact form */
+  .contact-form { padding: 2rem 1.2rem; }
+
+  /* Slideshow */
+  .slideshow-section { padding: 4rem 1rem; }
+  .ss-prev, .ss-next { width: 38px; height: 38px; font-size: 1rem; }
+
+  /* Timetable */
+  .timetable-section { padding: 3rem 1rem; }
+  .tt-legend { gap: 0.8rem; }
+
+  /* CTA */
+  .cta { padding: 4rem 1.2rem; }
+  .cta h2 { font-size: 1.7rem; }
+
+  /* Footer */
+  .footer-inner { flex-direction: column; text-align: center; gap: 1rem; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+
+  /* Subjects */
+  .subjects-grid { gap: 0.7rem; }
+  .subject-pill { font-size: 0.85rem; padding: 0.55rem 1.1rem; }
+
+  /* App summary modal */
+  .app-summary-box { padding: 1.5rem 1rem; width: 96%; }
+  .as-header { flex-direction: column; text-align: center; }
+  .as-title-bar { flex-direction: column; gap: 0.3rem; font-size: 0.88rem; }
+  .as-footer { flex-direction: column; gap: 1.5rem; }
+  .as-label { width: 45%; font-size: 0.82rem; }
+  .as-value { font-size: 0.85rem; }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  .hero h1 { font-size: 1.9rem; }
+  .hero-stats { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .team-card { width: 100%; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .checkbox-grid { grid-template-columns: 1fr; }
+  .info-strip-grid { grid-template-columns: 1fr; }
+  .page-hero h1 { font-size: 1.7rem; }
 }
 
 /* ── APPLY PAGE ── */
